@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Our Team – Code Station X</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --primary: #00bcd4;
+        --primary-dark: #0097a7;
+        --teal: #00e5ff;
+        --navy: #0a0e27;
+        --navy-mid: #0d1433;
+        --card-bg: #131c3e;
+        --border: rgba(0, 188, 212, 0.18);
+        --white: #ffffff;
+        --text-gray: #b0bec5;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--navy);
+        color: var(--white);
+        overflow-x: hidden;
+      }
+
+      /* ═══════════ NAVBAR ═══════════ */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(10, 14, 39, 0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 6%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+      }
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: fit-content;
+        text-decoration: none !important;
+      }
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, var(--primary), var(--teal));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .slogan {
+        color: #67c4d4;
+        font-size: 0.8rem;
+        font-weight: 400;
+        margin-left: 35px;
+        display: block;
+      }
+      nav a,
+      .logo-container,
+      .logo-container * {
+        text-decoration: none !important;
+        border-bottom: none !important;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 6px 0;
+        position: relative;
+        transition: color 0.3s;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--primary);
+      }
+      .nav-links a:hover::after,
+      .nav-links a.active::after {
+        width: 100%;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 5px;
+      }
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--white);
+      }
+
+      /* ═══════════ HERO ═══════════ */
+      .page-hero {
+        min-height: 52vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 130px 6% 70px;
+        background: linear-gradient(
+          135deg,
+          #050b1f 0%,
+          #0a1628 40%,
+          #091a35 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .page-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(0, 188, 212, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 188, 212, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: gridDrift 20s linear infinite;
+      }
+      .page-hero::after {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -60px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 188, 212, 0.1) 0%,
+          transparent 70%
+        );
+      }
+      @keyframes gridDrift {
+        from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(60px, 60px);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 188, 212, 0.1);
+        border: 1px solid rgba(0, 188, 212, 0.3);
+        padding: 6px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+        animation: fadeUp 0.7s 0.1s ease both;
+      }
+      .hero-badge::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--primary);
+        box-shadow: 0 0 8px var(--primary);
+        animation: blink 2s ease-in-out infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(0.75);
+        }
+      }
+      .page-hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+        animation: fadeUp 0.8s 0.25s ease both;
+      }
+      .page-hero h1 span {
+        color: var(--primary);
+      }
+      .page-hero p {
+        color: var(--text-gray);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.75;
+        font-weight: 300;
+        animation: fadeUp 0.8s 0.4s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ═══════════ TEAM SECTION ═══════════ */
+      #team {
+        padding: 90px 6% 110px;
+        background: var(--navy-mid);
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .section-header h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+      }
+      .section-header h2 span {
+        color: var(--primary);
+      }
+      .section-header p {
+        color: var(--text-gray);
+        max-width: 580px;
+        margin: 0 auto;
+        font-size: 1rem;
+        line-height: 1.75;
+        font-weight: 300;
+      }
+      .divider {
+        width: 55px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+        margin: 0.9rem auto 1.2rem;
+        border-radius: 2px;
+      }
+
+      /* ═══════════ GRID ═══════════ */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* ═══════════ CARD ═══════════ */
+      .dev-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.35s ease,
+          border-color 0.35s ease;
+      }
+      .dev-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .dev-card:nth-child(1) {
+        transition-delay: 0.05s;
+      }
+      .dev-card:nth-child(2) {
+        transition-delay: 0.15s;
+      }
+      .dev-card:nth-child(3) {
+        transition-delay: 0.25s;
+      }
+      .dev-card:nth-child(4) {
+        transition-delay: 0.35s;
+      }
+      .dev-card:hover {
+        box-shadow:
+          0 28px 70px rgba(0, 0, 0, 0.55),
+          0 0 50px rgba(0, 188, 212, 0.14);
+        border-color: var(--primary);
+        transform: translateY(-8px) scale(1.006);
+      }
+
+      /* ── coloured banner at top ── */
+      .card-banner {
+        height: 105px;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-banner .banner-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark) 0%,
+          var(--teal) 100%
+        );
+      }
+      /* dot pattern */
+      .card-banner .banner-dots {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.08) 1px,
+          transparent 1px
+        );
+        background-size: 18px 18px;
+      }
+      /* sweeping shimmer */
+      .card-banner .banner-shine {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          transparent 20%,
+          rgba(255, 255, 255, 0.18) 50%,
+          transparent 70%
+        );
+        transform: translateX(-120%);
+        animation: sweepShine 4s ease-in-out infinite;
+      }
+      .dev-card:hover .banner-shine {
+        animation-duration: 1.8s;
+      }
+      @keyframes sweepShine {
+        0% {
+          transform: translateX(-120%);
+        }
+        60% {
+          transform: translateX(120%);
+        }
+        100% {
+          transform: translateX(120%);
+        }
+      }
+
+      /* ═══════════ BIG PROFILE PICTURE ═══════════ */
+      .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -66px; /* avatar overlaps banner */
+        padding: 0 28px;
+        position: relative;
+        z-index: 5;
+      }
+
+      /* outermost glow halo wrapper */
+      .avatar-halo {
+        position: relative;
+        width: 140px;
+        height: 140px;
+      }
+
+      /* spinning conic ring */
+      .avatar-ring {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        padding: 4px;
+        background: conic-gradient(
+          var(--teal) 0deg,
+          var(--primary) 90deg,
+          #005f6b 180deg,
+          var(--primary) 270deg,
+          var(--teal) 360deg
+        );
+        animation: spinRing 5s linear infinite;
+        box-shadow:
+          0 0 22px rgba(0, 188, 212, 0.6),
+          0 0 50px rgba(0, 188, 212, 0.25);
+        transition:
+          box-shadow 0.4s ease,
+          animation-duration 0.4s;
+      }
+      .dev-card:hover .avatar-ring {
+        box-shadow:
+          0 0 36px rgba(0, 230, 255, 0.9),
+          0 0 80px rgba(0, 188, 212, 0.45);
+        animation-duration: 2s;
+      }
+      /* @keyframes spinRing {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      } */
+
+      /* white gap ring */
+      .avatar-gap {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--card-bg);
+        padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* actual avatar */
+      .avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--white);
+        background: linear-gradient(135deg, var(--primary-dark), var(--teal));
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.35s ease;
+        letter-spacing: -1px;
+      }
+      .dev-card:hover .avatar {
+        transform: scale(1.07);
+      }
+      .avatar::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.22) 0%,
+          transparent 55%
+        );
+        pointer-events: none;
+      }
+      .avatar span {
+        position: relative;
+        z-index: 1;
+      }
+      /* ── profile image inside avatar ── */
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* online dot */
+      .status-dot {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #22c55e;
+        border: 3px solid var(--card-bg);
+        box-shadow:
+          0 0 12px #22c55e,
+          0 0 28px rgba(34, 197, 94, 0.45);
+        animation: blink 2.2s ease-in-out infinite;
+        z-index: 10;
+      }
+
+      /* name / role */
+      .profile-meta {
+        text-align: center;
+        margin-top: 15px;
+        width: 100%;
+      }
+      .dev-name {
+        font-size: 1.28rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .dev-role {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0, 188, 212, 0.12);
+        border: 1px solid rgba(0, 188, 212, 0.3);
+        color: var(--primary);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 4px 14px;
+        border-radius: 6px;
+      }
+      .card-available {
+        margin-top: 9px;
+        font-size: 0.74rem;
+        color: #22c55e;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      .card-available::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 7px #22c55e;
+        animation: blink 2s ease-in-out infinite;
+      }
+
+      /* ═══════════ CARD BODY ═══════════ */
+      .card-body {
+        padding: 20px 28px 0;
+      }
+      .dev-bio {
+        font-size: 0.87rem;
+        color: #8fa6b8;
+        line-height: 1.78;
+        margin-bottom: 22px;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      /* stats */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 22px;
+        overflow: hidden;
+      }
+      .stat-item {
+        padding: 14px 10px;
+        text-align: center;
+        border-right: 1px solid var(--border);
+        transition: background 0.2s ease;
+      }
+      .stat-item:last-child {
+        border-right: none;
+      }
+      .stat-item:hover {
+        background: rgba(0, 188, 212, 0.07);
+      }
+      .stat-val {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .stat-lbl {
+        font-size: 0.67rem;
+        color: var(--text-gray);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        margin-top: 2px;
+      }
+
+      /* skills */
+      .skill-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 26px;
+        justify-content: center;
+      }
+      .skill-tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        color: var(--text-gray);
+        background: rgba(255, 255, 255, 0.04);
+        transition: all 0.2s ease;
+        cursor: default;
+      }
+      .skill-tag:hover {
+        background: rgba(0, 188, 212, 0.12);
+        border-color: rgba(0, 188, 212, 0.4);
+        color: var(--primary);
+      }
+
+      /* card footer */
+      .card-footer {
+        /* display: flex; */
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding: 18px 28px;
+        border-top: 1px solid var(--border);
+      }
+      .social-row {
+        display: flex;
+        gap: 10px;
+      }
+      .soc-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        color: var(--text-gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.22s ease;
+      }
+      .soc-btn:hover {
+        background: rgba(0, 188, 212, 0.15);
+        border-color: rgba(0, 188, 212, 0.4);
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+      .view-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 20px;
+        border-radius: 10px;
+        background: rgba(0, 188, 212, 0.12);
+        border: 1px solid rgba(0, 188, 212, 0.3);
+        color: var(--primary);
+        font-family: "Poppins", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.25s ease;
+      }
+      .view-btn:hover {
+        background: var(--primary);
+        color: var(--navy);
+        box-shadow: 0 8px 24px rgba(0, 188, 212, 0.4);
+      }
+      .view-btn i {
+        transition: transform 0.25s ease;
+      }
+      .view-btn:hover i {
+        transform: translateX(3px);
+      }
+
+      /* ═══════════ SITE FOOTER ═══════════ */
+      footer {
+        background: #050b1f;
+        border-top: 1px solid var(--border);
+        padding: 40px 6%;
+        text-align: center;
+      }
+      .footer-logo {
+        color: var(--primary);
+        font-weight: 800;
+        font-size: 1.3rem;
+      }
+      footer p {
+        color: var(--text-gray);
+        font-size: 0.85rem;
+        margin-top: 10px;
+      }
+
+      /* scroll top */
+      #scrollTop {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: var(--navy);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 188, 212, 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s,
+          transform 0.3s;
+        z-index: 900;
+      }
+      #scrollTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #scrollTop:hover {
+        transform: translateY(-3px);
+      }
+
+      /* ═══════════ RESPONSIVE ═══════════ */
+      @media (max-width: 900px) {
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 680px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          gap: 0;
+        }
+        .nav-links.open {
+          display: flex;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: rgba(10, 14, 39, 0.98);
+          padding: 10px 6% 20px;
+          border-bottom: 1px solid var(--border);
+        }
+        .nav-links.open li {
+          padding: 10px 0;
+        }
+        .hamburger {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="#home" class="logo-wrapper">
+      <div class="logo">Code Station X</div>
+      <div class="slogan">Intelligence Meets Innovation</div>
+    </a>
+      <ul class="nav-links" id="navLinks">
+       <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="hero-content">
+        <span class="hero-badge"
+          ><i class="fa-solid fa-users"></i>&nbsp; Engineering Team</span
+        >
+        <h1>Meet the <span>Minds</span> Behind<br />Code Station X</h1>
+        <p>
+          Four passionate engineers who turn bold ideas into polished, scalable
+          digital experiences — one commit at a time.
+        </p>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="section-header">
+        <div class="divider"></div>
+        <h2>Our <span>Developers</span></h2>
+        <p>
+          Specialists in AI, full-stack web, mobile, and cloud — united by a
+          single mission: Intelligence Meets Innovation.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- ══ CARD 1: Ranjan  ══ -->
+        <article class="dev-card">
+          <div class="card-banner">
+            <div class="banner-bg"></div>
+            <div class="banner-dots"></div>
+            <div class="banner-shine"></div>
+          </div>
+          <div class="profile-section">
+            <div class="avatar-halo">
+              <div class="avatar-ring">
+                <div class="avatar-gap">
+                  <div class="avatar">
+                    <img src="assets/team/ranjan.jpeg" alt="Hrb Ranjan"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <span style="display:none;">RA</span>
+                  </div>
+                </div>
+              </div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="profile-meta">
+              <div class="dev-name">Hrb Ranjan</div>
+              <span class="dev-role"
+                ><i class="fa-solid fa-brain"></i> CTO</span
+              >
+              <div class="card-available">Available for projects</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="dev-bio">
+              Hrb Ranjan is a seasoned CTO with over a decade of experience leading the development of scalable, production-grade applications. He has successfully delivered 100+ projects for 90+ clients, bringing strong expertise in PHP, Laravel, MERN, Python, FastAPI, and Django. With a focus on clean architecture and efficient deployment, he bridges the gap between technical execution and business needs, building reliable systems that perform at scale.
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-val">10+</div>
+                <div class="stat-lbl">Years Exp</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">100+</div>
+                <div class="stat-lbl">Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">90+</div>
+                <div class="stat-lbl">Clients</div>
+              </div>
+            </div>
+            <div class="skill-cloud">
+              <span class="skill-tag">PHP</span
+              ><span class="skill-tag">Laravel</span>
+              <span class="skill-tag">MERN</span
+              ><span class="skill-tag">Python</span>
+              <span class="skill-tag">FastAPI</span
+              ><span class="skill-tag">Django</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            
+              <a href="#" class="view-btn" title="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="#" class="view-btn" title="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="view-btn" title="Twitter"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            
+            
+          </div>
+        </article>
+
+        <!-- ══ CARD 2: PRANTI ══ -->
+        <article class="dev-card">
+          <div class="card-banner">
+            <div
+              class="banner-bg"
+              style="
+                background: linear-gradient(135deg, #0097a7 0%, #26c6da 100%);
+              "
+            ></div>
+            <div class="banner-dots"></div>
+            <div class="banner-shine"></div>
+          </div>
+          <div class="profile-section">
+            <div class="avatar-halo">
+              <div
+                class="avatar-ring"
+                style="
+                  background: conic-gradient(
+                    #26c6da 0deg,
+                    #0097a7 90deg,
+                    #00838f 180deg,
+                    #0097a7 270deg,
+                    #26c6da 360deg
+                  );
+                "
+              >
+                <div class="avatar-gap">
+                  <div
+                    class="avatar"
+                    style="
+                      background: linear-gradient(135deg, #0097a7, #26c6da);
+                    "
+                  >
+                    <img src="assets/team/pranti.jpeg" alt="Nadia Khan"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <span style="display:none;">PS</span>
+                  </div>
+                </div>
+              </div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="profile-meta">
+              <div class="dev-name">Pranti Saha</div>
+              <span class="dev-role"
+                ><i class="fa-solid fa-layer-group"></i> FRONT-END
+                DEVELOPER</span
+              >
+              <div class="card-available">Available for projects</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="dev-bio">
+              I build modern, responsive, and user-focused web interfaces—turning ideas into clean, interactive digital experiences. I specialize in crafting visually appealing designs with smooth performance, ensuring usability and accessibility across all devices.
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-val">2+</div>
+                <div class="stat-lbl">Years Exp</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">15+</div>
+                <div class="stat-lbl">Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">30%</div>
+                <div class="stat-lbl">Performance Improvement</div>
+              </div>
+            </div>
+            <div class="skill-cloud">
+              <span class="skill-tag">HTML</span
+              ><span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span
+              ><span class="skill-tag">React</span>
+              <span class="skill-tag">Next.JS</span
+              ><span class="skill-tag">Tailwind</span>
+              ><span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">Git</span>
+            </div>
+          </div>
+          <div class="card-footer">
+              <a href="#" class="view-btn" title="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="#" class="view-btn" title="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="view-btn" title="Twitter"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+          </div>
+        </article>
+
+        <!-- ══ CARD 3: Sefat ══ -->
+        <article class="dev-card">
+          <div class="card-banner">
+            <div
+              class="banner-bg"
+              style="
+                background: linear-gradient(135deg, #006064 0%, #00bcd4 100%);
+              "
+            ></div>
+            <div class="banner-dots"></div>
+            <div class="banner-shine"></div>
+          </div>
+          <div class="profile-section">
+            <div class="avatar-halo">
+              <div
+                class="avatar-ring"
+                style="
+                  background: conic-gradient(
+                    #00bcd4 0deg,
+                    #006064 90deg,
+                    #004d40 180deg,
+                    #006064 270deg,
+                    #00bcd4 360deg
+                  );
+                "
+              >
+                <div class="avatar-gap">
+                  <div
+                    class="avatar"
+                    style="
+                      background: linear-gradient(135deg, #006064, #00bcd4);
+                    "
+                  >
+                    <img src="assets/team/sefat.jpg" alt="Aryan Chowdhury"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <span style="display:none;">SR</span>
+                  </div>
+                </div>
+              </div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="profile-meta">
+              <div class="dev-name">Sefatur Rahman</div>
+              <span class="dev-role"
+                ><i class="fa-solid fa-mobile-screen-button"></i> Full Stack
+                Developer</span
+              >
+              <div class="card-available">Available for projects</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="dev-bio">
+              Sefatur is a Full Stack Developer dedicated to building high-performance digital products. With a solid foundation in the React ecosystem and robust backend management using Node.js and Laravel, he bridges the gap between complex database architecture and intuitive user interfaces. From architecting scalable SQL/NoSQL databases to delivering fluid 60fps mobile experiences, Sefatur builds technology that is both powerful and accessible.
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-val">1+</div>
+                <div class="stat-lbl">Years Exp</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">20+</div>
+                <div class="stat-lbl">Projects</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">10+</div>
+                <div class="stat-lbl">Clients</div>
+              </div>
+            </div>
+            <div class="skill-cloud">
+              <span class="skill-tag">HTML</span
+              ><span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">Laravel</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Firebase</span
+              ><span class="skill-tag">Node.JS</span>
+              <span class="skill-tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="card-footer">
+              <a href="https://github.com/sefat006" class="view-btn" title="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/sefatur-rahman-b19857352?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="view-btn" title="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="view-btn" title="Twitter"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+          </div>
+        </article>
+
+        <!-- ══ CARD 4: TASNIA ══ -->
+        <article class="dev-card">
+          <div class="card-banner">
+            <div
+              class="banner-bg"
+              style="
+                background: linear-gradient(135deg, #004d61 0%, #00acc1 100%);
+              "
+            ></div>
+            <div class="banner-dots"></div>
+            <div class="banner-shine"></div>
+          </div>
+          <div class="profile-section">
+            <div class="avatar-halo">
+              <div
+                class="avatar-ring"
+                style="
+                  background: conic-gradient(
+                    #00acc1 0deg,
+                    #004d61 90deg,
+                    #003d4f 180deg,
+                    #004d61 270deg,
+                    #00acc1 360deg
+                  );
+                "
+              >
+                <div class="avatar-gap">
+                  <div
+                    class="avatar"
+                    style="
+                      background: linear-gradient(135deg, #004d61, #00acc1);
+                    "
+                  >
+                    <img src="assets/team/rimon.jpg" alt="Tasnia Mitu"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <span style="display:none;">RM</span>
+                  </div>
+                </div>
+              </div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="profile-meta">
+              <div class="dev-name">Rimon Dey</div>
+              <span class="dev-role"
+                ><i class="fa-solid fa-cubes"></i> Full Stack Developer</span
+              >
+              <div class="card-available">Available for projects</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="dev-bio">
+              Rimon is a passionate MERN stack developer dedicated to building seamless, end-to-end digital products. He specializes in crafting pixel-perfect, responsive interfaces with React and Next.js, backed by robust server-side logic using Node.js and MongoDB. His focus is on creating high-performance web applications that provide exceptional user experiences and scalable business solutions.
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <div class="stat-val">1+</div>
+                <div class="stat-lbl">Years Exp</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">13+</div>
+                <div class="stat-lbl">Full Stack</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-val">10+</div>
+                <div class="stat-lbl">Clients</div>
+              </div>
+            </div>
+             <div class="skill-cloud">
+              <span class="skill-tag">HTML</span
+              ><span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Next.JS</span>
+              <span class="skill-tag">Firebase</span
+              ><span class="skill-tag">Node.JS</span>
+              <span class="skill-tag">Express JS</span>
+              <span class="skill-tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="card-footer">
+              <a href="https://github.com/rimond12" class="view-btn" title="GitHub"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/rimon-dey?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="view-btn" title="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="view-btn" title="Twitter"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+          </div>
+        </article>
+      </div>
+      <!-- .team-grid -->
+    </section>
+
+    <!-- SITE FOOTER -->
+    <footer>
+      <div class="footer-logo">CODE STATION X</div>
+      <p>
+        &copy; 2025 <strong>Code Station X</strong>. All rights reserved.
+        &nbsp;|&nbsp; Intelligence Meets Innovation.
+      </p>
+    </footer>
+
+    <button id="scrollTop" aria-label="Scroll to top">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.style.boxShadow =
+          window.scrollY > 50 ? "0 4px 30px rgba(0,0,0,.5)" : "none";
+        document
+          .getElementById("scrollTop")
+          .classList.toggle("visible", window.scrollY > 400);
+      });
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+      hamburger.addEventListener("click", () =>
+        navLinks.classList.toggle("open"),
+      );
+      navLinks
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => navLinks.classList.remove("open")),
+        );
+
+      document
+        .getElementById("scrollTop")
+        .addEventListener("click", () =>
+          window.scrollTo({ top: 0, behavior: "smooth" }),
+        );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.06 },
+      );
+      document
+        .querySelectorAll(".dev-card")
+        .forEach((c) => observer.observe(c));
+    </script>
+  </body>
+</html>
