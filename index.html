@@ -724,31 +724,113 @@ nav a, .logo-container, .logo-container * {
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-wrapper">
-      <div class="section-header reveal">
-        <h2>Contact <span>Us</span></h2>
-        <div class="divider"></div>
-        <p style="margin-top:1rem;">Have questions or ready to start your project? Reach out to our team and we'll get back to you as soon as possible.</p>
-      </div>
-      <div class="contact-cards">
-        <a href="https://wa.me/8801979189844" class="contact-card reveal" target="_blank" rel="noopener">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"/>
-          <div class="contact-info">
-            <span>WhatsApp</span>
-            <strong>01979189844</strong>
-          </div>
-        </a>
-        <a href="mailto:info@codestationx.com" class="contact-card reveal">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email"/>
-          <div class="contact-info">
-            <span>Email</span>
-            <strong>info@codestationx.com</strong>
-          </div>
-        </a>
+   <style>
+    /* EXTRA CONTACT INFO */
+.contact-extra {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.address-card {
+  max-width: 420px;
+  width: 100%;
+}
+
+/* SOCIAL LINKS */
+.contact-social {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.social-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.social-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 25px rgba(0,188,212,0.2);
+}
+   </style>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="section-header reveal">
+      <h2>Contact <span>Us</span></h2>
+      <div class="divider"></div>
+      <p style="margin-top:1rem;">
+        Have questions or ready to start your project? Reach out to our team and we'll get back to you as soon as possible.
+      </p>
+    </div>
+
+    <!-- EXISTING CONTACT CARDS -->
+    <div class="contact-cards">
+      <a href="https://wa.me/8801979189844" class="contact-card reveal" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"/>
+        <div class="contact-info">
+          <span>WhatsApp</span>
+          <strong>01979189844</strong>
+        </div>
+      </a>
+
+      <a href="mailto:info@codestationx.com" class="contact-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email"/>
+        <div class="contact-info">
+          <span>Email</span>
+          <strong>info@codestationx.com</strong>
+        </div>
+      </a>
+    </div>
+
+    <!-- NEW: ADDRESS -->
+    <div class="contact-extra reveal">
+      <div class="contact-card address-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location"/>
+        <div class="contact-info">
+          <span>Address</span>
+          <strong>
+            3rd Floor, 13/A Panthopath, Tejgaon,<br>
+            Dhaka 1215, Bangladesh
+          </strong>
+        </div>
       </div>
     </div>
-  </section>
+
+    <!-- NEW: SOCIAL LINKS -->
+    <div class="contact-social reveal">
+      <a href="https://www.facebook.com/profile.php?id=61568936278220&sk=photos" target="_blank" rel="noopener" class="social-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        <span>Facebook</span>
+      </a>
+
+      <a href="https://www.linkedin.com/company/code-station-x/about/?viewAsMember=true" target="_blank" rel="noopener" class="social-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+        <span>LinkedIn</span>
+      </a>
+    </div>
+
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer>
